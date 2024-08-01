@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <map>
+#include <QPushButton>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -24,9 +26,17 @@ private slots:
 
     void on_gameButton_clicked();
 
+    void gameLogic();
+
 private:
     Ui::MainWindow *ui;
+    std::map<int, QPushButton*> board;
     bool playerType;
     bool isRunning;
+    bool isPlayerMove;
+    void botMove();
+    bool isEmptyCells(Ui::MainWindow &ui);
+    bool checkWin(bool playerType);
+
 };
 #endif // MAINWINDOW_H
